@@ -59,21 +59,33 @@ class WeatherInfoModel extends WeatherInfo {
 
   Map<String, dynamic> toJson() {
     return {
-      'main': main,
-      'description': description,
-      'temp': temp,
-      'feels_like': feelsLike,
-      'temp_min': tempMin,
-      'temp_max': tempMax,
-      'pressure': pressure,
-      'humidity': humidity,
-      'wind_speed': windSpeed,
-      'wind_deg': windDeg,
-      'clouds_all': cloudsAll,
-      'country': country,
-      'city_name': cityName,
-      'sunrise': sunrise,
-      'sunset': sunset,
+      'weather': [
+        {
+          'main': main,
+          'description': description,
+        }
+      ],
+      'main': {
+        'temp': temp,
+        'feels_like': feelsLike,
+        'temp_min': tempMin,
+        'temp_max': tempMax,
+        'pressure': pressure,
+        'humidity': humidity,
+      },
+      'wind': {
+        'speed': windSpeed,
+        'deg': windDeg,
+      },
+      'clouds': {
+        'all': cloudsAll,
+      },
+      'sys': {
+        'country': country,
+        'sunrise': sunrise,
+        'sunset': sunset,
+      },
+      'name': cityName,
       'cod': cod,
     };
   }
