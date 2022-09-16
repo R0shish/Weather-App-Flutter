@@ -1,9 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:weather_app/features/weather_app/data/models/weather_info_model.dart';
 import 'package:weather_app/features/weather_app/domain/entities/weather_info.dart';
-
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
