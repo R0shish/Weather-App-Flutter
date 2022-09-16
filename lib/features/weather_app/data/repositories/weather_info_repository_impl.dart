@@ -1,5 +1,5 @@
 import 'package:weather_app/core/error/exceptions.dart';
-import 'package:weather_app/core/platform/network_info.dart';
+import 'package:weather_app/core/network/network_info.dart';
 import 'package:weather_app/features/weather_app/data/datasources/weather_info_local_data_source.dart';
 import 'package:weather_app/features/weather_app/data/datasources/weather_info_remote_datasource.dart';
 import 'package:weather_app/features/weather_app/domain/entities/weather_info.dart';

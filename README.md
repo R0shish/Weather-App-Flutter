@@ -28,3 +28,7 @@ instead of : super([text, number])
 
 4.  Import the new generated class
     (MockNumberTriviaRepository)
+
+### Data connection checker does not support null safety yet, so i had to use the following:
+
+    internet_connection_checker: ^0.0.1+4

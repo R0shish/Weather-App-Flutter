@@ -4,7 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:weather_app/core/error/exceptions.dart';
 import 'package:weather_app/core/error/failures.dart';
-import 'package:weather_app/core/platform/network_info.dart';
+import 'package:weather_app/core/network/network_info.dart';
 import 'package:weather_app/features/weather_app/data/datasources/weather_info_local_data_source.dart';
 import 'package:weather_app/features/weather_app/data/datasources/weather_info_remote_datasource.dart';
 import 'package:weather_app/features/weather_app/data/models/weather_info_model.dart';
