@@ -1,3 +1,4 @@
+import 'package:weather_app/core/error/exceptions.dart';
 import 'package:weather_app/core/platform/network_info.dart';
 import 'package:weather_app/features/weather_app/data/datasources/weather_info_local_data_source.dart';
 import 'package:weather_app/features/weather_app/data/datasources/weather_info_remote_datasource.dart';
@@ -18,8 +19,22 @@ class WeatherInfoRepositoryImpl implements WeatherInfoRepository {
   });
 
   @override
-  Future<Either<Failure, WeatherInfo>> getWeatherInfo(String city) {
-    // TODO: implement getWeatherInfo
-    throw UnimplementedError();
+  Future<Either<Failure, WeatherInfo>> getWeatherInfo(String city) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteInfo = await remoteDataSource.getWeatherInfo(city);
+        localDataSource.cacheWeatherInfo(remoteInfo);
+        return Right(remoteInfo);
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      try {
+        final localWeatherInfo = await localDataSource.getLastWeatherInfo();
+        return Right(localWeatherInfo);
+      } on CacheException {
+        return Left(CacheFailure());
+      }
+    }
   }
 }

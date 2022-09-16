@@ -7,14 +7,14 @@ abstract class Failure extends Equatable {
 // General failures
 
 class ServerFailure extends Failure {
-  late final String message;
+  final String message = 'Server Failure';
 
   @override
   List<Object> get props => [message];
 }
 
 class CacheFailure extends Failure {
-  late final String message;
+  final String message = 'Cache Failure';
 
   @override
   List<Object> get props => [message];
